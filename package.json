@@ -2,6 +2,11 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Konstantin Sapronov",
+    "url": "https://github.com/shopot"
+  },
+  "description": "A simple Next.js project",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +14,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.11",
     "better-sqlite3": "11.1.2",
     "next": "14.2.5",
     "react": "^18.3.1",
@@ -31,5 +37,9 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">= 20.9.0",
+    "pnpm": ">= 9.1.0"
   }
 }
