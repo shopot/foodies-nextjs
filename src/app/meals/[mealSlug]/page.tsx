@@ -1,5 +1,7 @@
 import { type JSX } from 'react';
 
-export default function MealDetailsPage(): JSX.Element {
+const MealDetailsPage = (): JSX.Element => {
   return <div>My Page</div>;
-}
+};
+
+export default MealDetailsPage;
