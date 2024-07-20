@@ -7,12 +7,34 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "import"],
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
+  "ignorePatterns": ["docker", "build", "*.cjs", "*.js", "*.d.ts", "node_modules", "public", "build", "dist"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+        "pathGroups": [
+          { "pattern": "react", "group": "builtin" },
+          { "pattern": "react-dom/**", "group": "builtin" },
+          { "pattern": "next/**", "group": "builtin" }
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
   }
 }

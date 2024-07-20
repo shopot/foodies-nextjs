@@ -1,11 +1,11 @@
 import { type JSX } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import logoImage from '@/assets/logo.png';
 
-import styles from './main-header.module.css';
 import { MainHeaderBackground } from './main-header-background';
+import styles from './main-header.module.css';
 import { NavMenu } from './nav-menu';
 
 const headerMenu = [

@@ -1,8 +1,9 @@
 'use client';
 
 import { PropsWithChildren, type JSX } from 'react';
-import { usePathname } from 'next/navigation';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import styles from './nav-link.module.css';
 

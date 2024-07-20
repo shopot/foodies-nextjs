@@ -1,10 +1,9 @@
 import { type JSX } from 'react';
+import Link from 'next/link';
 
-// http://localhost:3000/
+import { ImageSlideshow } from '@/components/images';
 
 import styles from './page.module.css';
-import Link from 'next/link';
-import { ImageSlideshow } from '@/components/images';
 
 const HomePage = (): JSX.Element => {
   return (
