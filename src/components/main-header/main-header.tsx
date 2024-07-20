@@ -6,6 +6,7 @@ import logoImage from '@/assets/logo.png';
 
 import styles from './main-header.module.css';
 import { MainHeaderBackground } from './main-header-background';
+import { NavLink } from './nav-link';
 
 export const MainHeader = (): JSX.Element => {
   return (
@@ -16,16 +17,7 @@ export const MainHeader = (): JSX.Element => {
           <Image src={logoImage} alt='A plate with food on it' />
           NextLevel Food
         </Link>
-        <nav className={styles.nav}>
-          <ul>
-            <li>
-              <Link href='/meals'>Browse Meals</Link>
-            </li>
-            <li>
-              <Link href='/community'>Foodies Community</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavLink />
       </header>
     </>
   );
