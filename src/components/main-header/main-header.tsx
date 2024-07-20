@@ -6,7 +6,12 @@ import logoImage from '@/assets/logo.png';
 
 import styles from './main-header.module.css';
 import { MainHeaderBackground } from './main-header-background';
-import { NavLink } from './nav-link';
+import { NavMenu } from './nav-menu';
+
+const headerMenu = [
+  { text: 'Browse Meals', href: '/meals' },
+  { text: 'Foodies Community', href: '/community' },
+];
 
 export const MainHeader = (): JSX.Element => {
   return (
@@ -17,7 +22,7 @@ export const MainHeader = (): JSX.Element => {
           <Image src={logoImage} alt='A plate with food on it' />
           NextLevel Food
         </Link>
-        <NavLink />
+        <NavMenu menu={headerMenu} />
       </header>
     </>
   );
