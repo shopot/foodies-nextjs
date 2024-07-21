@@ -1,0 +1,13 @@
+---
+services:
+  backend:
+    container_name: nextjs-app
+    image: nextjs-docker
+    ports:
+      - 3000:3000
+    restart: always
+    tty: true
+    volumes:
+      - ./meals.db:/app/meals.db
+
+version: "3"
