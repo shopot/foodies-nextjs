@@ -1,8 +1,9 @@
 import { type JSX } from 'react';
 
+import { Meal } from '@/model';
+
 import { MealItem } from './meal-item';
 import styles from './meals-grid.module.css';
-import { Meal } from './types';
 
 type MealsGridProps = {
   meals: Meal[];

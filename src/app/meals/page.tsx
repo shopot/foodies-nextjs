@@ -1,9 +1,12 @@
-import { type JSX } from 'react';
+import { type JSX, Suspense } from 'react';
 import Link from 'next/link';
 
-import styles from './page.module.css';
+import { Loading } from '@/components/common';
 
-const MealsPage = (): JSX.Element => {
+import styles from './page.module.css';
+import { MealsGridLoader } from './meals-grid-loader';
+
+const MealsPage = async (): Promise<JSX.Element> => {
   return (
     <>
       <header className={styles.header}>
@@ -15,7 +18,11 @@ const MealsPage = (): JSX.Element => {
           <Link href='/meals/share'>Share Your Favorite Recipe</Link>
         </p>
       </header>
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <Suspense fallback={<Loading text='Fetching meals...' />}>
+          <MealsGridLoader />
+        </Suspense>
+      </main>
     </>
   );
 };

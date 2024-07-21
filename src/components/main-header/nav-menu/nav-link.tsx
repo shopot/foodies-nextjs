@@ -1,7 +1,6 @@
 'use client';
 
-import { PropsWithChildren, type JSX } from 'react';
-
+import { type JSX, PropsWithChildren } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

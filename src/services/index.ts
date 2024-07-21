@@ -1,1 +1,1 @@
-export { mealService } from './meal-service';
+export * from './meal';

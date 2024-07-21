@@ -27,11 +27,7 @@
       "error",
       {
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
-        "pathGroups": [
-          { "pattern": "react", "group": "builtin" },
-          { "pattern": "react-dom/**", "group": "builtin" },
-          { "pattern": "next/**", "group": "builtin" }
-        ],
+        "pathGroups": [{ "pattern": "{react,react-dom}/**", "group": "builtin" }],
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": ["builtin"]
       }

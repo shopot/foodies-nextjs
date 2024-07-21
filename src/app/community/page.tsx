@@ -7,7 +7,7 @@ import eventsIcon from '@/assets/icons/events.png';
 
 import classes from './page.module.css';
 
-export const CommunityPage = (): JSX.Element => {
+const CommunityPage = (): JSX.Element => {
   return (
     <>
       <header className={classes.header}>
