@@ -1,11 +1,36 @@
+'use client';
+
 import { type JSX } from 'react';
+import { useFormState } from 'react-dom';
 
 import { ImagePicker, MealsFromSubmit } from '@/components/meals';
-import { mealService } from '@/services';
+import { shareMeal } from '@/actions/meal/share-meal';
 
 import styles from './page.module.css';
 
+type FormState = {
+  name: string;
+  email: string;
+  title: string;
+  summary: string;
+  instructions: string;
+  image: string;
+  message: string;
+};
+
+const initialState: FormState = {
+  name: '',
+  email: '',
+  title: '',
+  summary: '',
+  instructions: '',
+  image: '',
+  message: '',
+};
+
 const ShareMealPage = (): JSX.Element => {
+  const [formState, formAction] = useFormState(shareMeal, { ...initialState });
+
   return (
     <>
       <header className={styles.header}>
@@ -15,7 +40,8 @@ const ShareMealPage = (): JSX.Element => {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={styles.main}>
-        <form className={styles.form} action={mealService.shareMeal}>
+        <form className={styles.form} action={formAction}>
+          {formState.message && <p>{formState.message}</p>}
           <div className={styles.row}>
             <p>
               <label htmlFor='name'>Your name</label>

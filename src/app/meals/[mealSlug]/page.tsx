@@ -2,7 +2,7 @@ import { type JSX } from 'react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { mealService } from '@/services';
+import { getMeal } from '@/actions/meal/get-meal';
 
 import styles from './page.module.css';
 
@@ -13,7 +13,7 @@ type MealDetailsPageProps = {
 };
 
 const MealDetailsPage = async ({ params: { mealSlug } }: MealDetailsPageProps): Promise<JSX.Element> => {
-  const meal = await mealService.getMeal(mealSlug);
+  const meal = await getMeal(mealSlug);
 
   if (!meal) {
     notFound();
