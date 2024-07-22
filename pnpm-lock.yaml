@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@types/better-sqlite3':
-        specifier: ^7.6.11
-        version: 7.6.11
       better-sqlite3:
         specifier: 11.1.2
         version: 11.1.2
@@ -39,6 +36,9 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.2.5
         version: 14.2.5
+      '@types/better-sqlite3':
+        specifier: ^7.6.11
+        version: 7.6.11
       '@types/node':
         specifier: ^20
         version: 20.14.11
