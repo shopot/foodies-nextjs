@@ -94,3 +94,9 @@
   color: #ddd8d8;
   text-align: center;
 }
+
+.fieldError {
+  display: inline-block;
+  color: #fd4715;
+  margin-top: 0.25rem;
+}

@@ -10,9 +10,9 @@ import { createSlug, filterXSS } from '@/utils';
 import { ACCEPTED_FILE_TYPES, MAX_UPLOAD_SIZE } from '@/config';
 
 const FormDataSchema = z.object({
-  title: z.string().trim().min(1),
-  summary: z.string().trim().min(1),
-  instructions: z.string().trim().min(1),
+  title: z.string().trim().min(1, { message: 'Title is required' }),
+  summary: z.string().trim().min(1, { message: 'Short Summary is required' }),
+  instructions: z.string().trim().min(1, { message: 'Instructions are required' }),
   image: z
     .instanceof(File)
     .refine((file) => {
@@ -23,9 +23,9 @@ const FormDataSchema = z.object({
     }, 'File size must be less than 3MB')
     .refine((file) => {
       return ACCEPTED_FILE_TYPES.includes(file.type);
-    }, 'File must be a PNG, JPEG or WEBP'),
-  creator: z.string().trim().min(1),
-  creator_email: z.string().trim().email(),
+    }, 'Image file is required'),
+  creator: z.string().trim().min(1, { message: 'Your Name is required' }),
+  creator_email: z.string().trim().email({ message: 'Invalid email address' }),
 });
 
 const uploadImage = async (slug: string, image: File | null) => {
@@ -82,6 +82,13 @@ export const shareMeal = async (_: unknown, formatData: FormData) => {
 
     redirect('/meals');
   } catch (err) {
+    if (err instanceof z.ZodError) {
+      return {
+        errors: err.flatten().fieldErrors,
+        message: 'One or more fields have an error. Please check them and try again.',
+      };
+    }
+
     return {
       message: (err as Error).message || 'Invalid input!',
     };
