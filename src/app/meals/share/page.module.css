@@ -87,3 +87,10 @@
 .actions button:focus {
   background: linear-gradient(90deg, #fd4715, #f9b241);
 }
+
+.errorMessage {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ddd8d8;
+  text-align: center;
+}

@@ -35,14 +35,16 @@ export class MealModel {
   static async saveMeal(createMealDto: CreateMealDto): Promise<RunResult> {
     return db
       .prepare<CreateMealDto[], CreateMealDto>(
-        `INSERT INTO meals VALUES (
-          @slug,
+        `INSERT INTO meals
+         (title, summary, instructions, creator, creator_email, image, slug)
+        VALUES (
           @title,
-          @image,
           @summary,
           @instructions,
           @creator,
-          @creator_email
+          @creator_email,
+          @image,
+          @slug
         )`,
       )
       .run(createMealDto);

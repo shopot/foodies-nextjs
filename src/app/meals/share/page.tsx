@@ -41,7 +41,7 @@ const ShareMealPage = (): JSX.Element => {
       </header>
       <main className={styles.main}>
         <form className={styles.form} action={formAction}>
-          {formState.message && <p>{formState.message}</p>}
+          {formState.message && <p className={styles.errorMessage}>{formState.message}</p>}
           <div className={styles.row}>
             <p>
               <label htmlFor='name'>Your name</label>

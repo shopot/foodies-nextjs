@@ -75,7 +75,7 @@ export const shareMeal = async (_: unknown, formatData: FormData) => {
       ...meal,
       slug,
       instructions,
-      image: `images/${filename}`,
+      image: `/images/${filename}`,
     };
 
     await MealModel.saveMeal(newMeal);
