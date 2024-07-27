@@ -63,7 +63,8 @@
 .instructions {
   font-size: 1.25rem;
   line-height: 1.5;
-  background-color: #6e6464;
+  /* background-color: #6e6464; */
+  background-color: #978b8b;
   color: #13120f;
   border-radius: 8px;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
