@@ -12,6 +12,24 @@ type MealDetailsPageProps = {
   };
 };
 
+export const generateMetadata = async ({
+  params: { mealSlug },
+}: MealDetailsPageProps): Promise<{
+  title: string;
+  description: string;
+}> => {
+  const meal = await getMeal(mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title || 'Meal not found',
+    description: meal.summary || '',
+  };
+};
+
 const MealDetailsPage = async ({ params: { mealSlug } }: MealDetailsPageProps): Promise<JSX.Element> => {
   const meal = await getMeal(mealSlug);
 

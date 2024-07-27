@@ -6,6 +6,11 @@ import { Loading } from '@/components/common';
 import styles from './page.module.css';
 import { MealsGridLoader } from './meals-grid-loader';
 
+export const metadata = {
+  title: 'All Meals',
+  description: 'Browse the delicious meals shared by our vibrant community.',
+};
+
 const MealsPage = async (): Promise<JSX.Element> => {
   return (
     <>
