@@ -1,10 +1,10 @@
 {
-  "name": "next-app",
-  "version": "0.1.0",
+  "name": "foodies-nextjs",
+  "version": "0.0.1",
   "private": true,
   "author": {
     "name": "Konstantin Sapronov",
-    "url": "https://github.com/shopot"
+    "url": "https://github.com/shopot/foodies-nextjs"
   },
   "description": "A simple Next.js project",
   "scripts": {
