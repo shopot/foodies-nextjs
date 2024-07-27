@@ -31,7 +31,7 @@ const initialState: FormState = {
 const ShareMealPage = (): JSX.Element => {
   const [formState, formAction] = useFormState(shareMeal, { ...initialState });
 
-  const { errors } = formState;
+  const { errors, message: errorMessage } = formState;
 
   return (
     <>
@@ -43,7 +43,7 @@ const ShareMealPage = (): JSX.Element => {
       </header>
       <main className={styles.main}>
         <form className={styles.form} action={formAction}>
-          {formState.message && <p className={styles.errorMessage}>{formState.message}</p>}
+          {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
           <div className={styles.row}>
             <p>
               <label htmlFor='name'>Your name</label>
