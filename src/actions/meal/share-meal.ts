@@ -4,6 +4,7 @@ import fs from 'node:fs';
 
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
+import { revalidatePath } from 'next/cache';
 
 import { MealModel } from '@/model';
 import { createSlug, filterXSS } from '@/utils';
@@ -80,6 +81,8 @@ export const shareMeal = async (_: unknown, formatData: FormData) => {
 
     await MealModel.saveMeal(newMeal);
 
+    revalidatePath('/meals');
+
     redirect('/meals');
   } catch (err) {
     if (err instanceof z.ZodError) {
@@ -90,7 +93,7 @@ export const shareMeal = async (_: unknown, formatData: FormData) => {
     }
 
     return {
-      message: (err as Error).message || 'Invalid input!',
+      message: 'Something went wrong. Please try again later.',
     };
   }
 };
